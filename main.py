@@ -7,20 +7,22 @@ def sum_max_consecutive_numbers(array):
     except:
         print("Error! Input must be of type array")
 
-    consecutive_list = []
     consecutive_count = 0
+    consecutive_max = 0
+
     for n in array:
         if n == 1:
             consecutive_count += 1
-            consecutive_list.append(consecutive_count)
         if n == 0:
-            consecutive_list.append(consecutive_count)
             consecutive_count = 0
-        
-            
-    sum_of_max_consecutive_ones = max(consecutive_list)
+
+        if consecutive_count > consecutive_max:
+            consecutive_max = consecutive_count
+
+    sum_of_max_consecutive_ones = consecutive_max
     return sum_of_max_consecutive_ones
 
 if __name__ == '__main__':
-    result = sum_max_consecutive_numbers([1,0,1,1,0,1,1,1])
-    print(result)
+    result1 = sum_max_consecutive_numbers([1,0,1,1,1,1,0,0,1,1])
+    result2 = sum_max_consecutive_numbers([1,0,1,1,0,1,1,1])
+    print(result1, result2)
