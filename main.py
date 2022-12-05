@@ -1,5 +1,12 @@
+import numpy as np
+
 def sum_max_consecutive_numbers(array):
     '''This function takes an array as input and calculates the sum of the max consecutive 1s'''
+    try:
+        np.array(array)
+    except:
+        print("Error! Input must be of type array")
+
     consecutive_list = []
     consecutive_count = 0
     for n in array:
